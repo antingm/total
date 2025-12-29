@@ -1,0 +1,72 @@
+/* ProductGrid 樣式 */
+
+.product-grid-section {
+    padding: var(--spacing-3xl) 0;
+    background: white;
+}
+
+/* 分類篩選標籤 */
+.product-grid__tabs {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-2xl);
+    flex-wrap: wrap;
+}
+
+.product-grid__tab {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    font-weight: 500;
+    color: var(--color-text-light);
+    background: var(--color-surface);
+    border-radius: var(--radius-full);
+    transition: all var(--transition-fast);
+}
+
+.product-grid__tab:hover {
+    color: var(--color-primary);
+    background: var(--color-surface-dark);
+}
+
+.product-grid__tab--active {
+    color: white;
+    background: var(--color-primary);
+}
+
+.product-grid__tab--active:hover {
+    color: white;
+    background: var(--color-primary-dark);
+}
+
+/* 商品網格 */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+}
+
+@media (min-width: 640px) {
+    .product-grid {
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (min-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* 查看更多按鈕 */
+.product-grid__more {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--spacing-2xl);
+}

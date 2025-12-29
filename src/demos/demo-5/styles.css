@@ -1,0 +1,231 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================================================
+   LUNA Fashion Nail - Premium Design System (Tailwind CSS v4)
+   ========================================================================== */
+
+@theme {
+  --color-primary: #E1ADAC;
+  --color-primary-dark: #C48F8E;
+  --color-secondary: #333333;
+  --color-surface: #FAFAFA;
+
+  --font-sans: 'Inter', 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: white;
+    color: var(--color-secondary);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* 桌面版背景 */
+  @media (min-width: 1024px) {
+    body {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+    }
+  }
+
+  /* 自定義滾動條 */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(225, 173, 172, 0.3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(225, 173, 172, 0.5);
+  }
+}
+
+@layer components {
+
+  /* Hide Scrollbar */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Card 卡片樣式 */
+  .card {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .card-hover {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  /* Button 按鈕樣式 */
+  .btn-primary {
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.875rem;
+    font-weight: 600;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, #E1ADAC 0%, #C48F8E 100%);
+    color: white;
+    box-shadow: 0 8px 24px -8px rgba(225, 173, 172, 0.5);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #C48F8E 0%, #B07B7A 100%);
+    box-shadow: 0 12px 32px -8px rgba(225, 173, 172, 0.6);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-outline {
+    padding: 0.875rem 1.5rem;
+    border-radius: 0.875rem;
+    font-weight: 600;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+  }
+
+  .btn-outline:hover {
+    background: linear-gradient(135deg, #E1ADAC 0%, #C48F8E 100%);
+    color: white;
+    border-color: transparent;
+  }
+
+  .btn-outline:active {
+    transform: scale(0.97);
+  }
+
+  /* Chip 標籤樣式 */
+  .chip {
+    padding: 0.625rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    color: var(--color-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .chip:hover {
+    background: rgba(225, 173, 172, 0.1);
+    border-color: rgba(225, 173, 172, 0.3);
+  }
+
+  .chip-active {
+    background: linear-gradient(135deg, #E1ADAC 0%, #C48F8E 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 12px rgba(225, 173, 172, 0.4);
+  }
+
+  /* Member Card 會員卡 */
+  .member-card {
+    background: linear-gradient(135deg, #E8B4B3 0%, #D49C9B 30%, #C48F8E 60%, #B07B7A 100%);
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+      0 20px 40px -15px rgba(196, 143, 142, 0.5),
+      inset 0 1px 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .member-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.08) 35%,
+        rgba(255, 255, 255, 0.15) 40%,
+        rgba(255, 255, 255, 0.08) 45%,
+        transparent 50%);
+    animation: shimmer 3s infinite linear;
+    pointer-events: none;
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-50%) translateY(-50%) rotate(25deg);
+    }
+
+    100% {
+      transform: translateX(50%) translateY(50%) rotate(25deg);
+    }
+  }
+
+  /* Horizontal Scroll */
+  .scroll-snap-x {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scroll-snap-x::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scroll-snap-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+
+@layer utilities {
+
+  /* Line Clamp */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

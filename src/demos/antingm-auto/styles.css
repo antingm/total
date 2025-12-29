@@ -1,0 +1,867 @@
+@import "tailwindcss";
+
+/* ============================================
+   商業數位導航站 - 設計系統 (全面優化版)
+   ============================================ */
+
+/* === 字體導入 === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+
+/* === 主題變數 === */
+@theme {
+  /* 色彩系統 */
+  --color-primary-50: #eef2ff;
+  --color-primary-100: #e0e7ff;
+  --color-primary-200: #c7d2fe;
+  --color-primary-300: #a5b4fc;
+  --color-primary-400: #818cf8;
+  --color-primary-500: #6366f1;
+  --color-primary-600: #4f46e5;
+  --color-primary-700: #4338ca;
+  --color-primary-800: #3730a3;
+  --color-primary-900: #312e81;
+  --color-primary-950: #1e1b4b;
+
+  /* 深藍商務色 */
+  --color-business-900: #0f172a;
+  --color-business-800: #1e293b;
+  --color-business-700: #334155;
+  --color-business-600: #475569;
+
+  /* 橙金強調色 */
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+
+  /* 成功/信任綠 */
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+
+  /* 字體 */
+  --font-sans: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+  --font-display: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+
+  /* 動畫時長 */
+  --animate-fade-in: fade-in 0.6s ease-out;
+  --animate-slide-up: slide-up 0.6s ease-out;
+  --animate-slide-in-right: slide-in-right 0.5s ease-out;
+  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+}
+
+/* === 動畫關鍵幀 === */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.8);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* === 基礎樣式（優化閱讀體驗） === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  color: #f8fafc;
+  min-height: 100vh;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  word-spacing: 0.08em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === 文字排版優化（專業設計原則） === */
+h1 {
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  word-spacing: 0.02em;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.75rem;
+}
+
+h3 {
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  line-height: 1.9;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* 增加文字間距的選擇器 */
+.text-relaxed {
+  line-height: 2;
+  letter-spacing: 0.03em;
+}
+
+/* === 按鈕系統（像素完美 - Pixel Perfect） === */
+/* 基礎按鈕 - 觸控友好、狀態完整 */
+.btn {
+  /* Flexbox 精確對齊 */
+  @apply inline-flex items-center justify-center;
+  gap: 0.625rem;
+  /* 10px - 圖標與文字間距 */
+
+  /* 觸控區域 - Mobile First (iOS/Android標準) */
+  padding: 0.875rem 1.75rem;
+  /* 14px 28px */
+  min-height: 48px;
+  /* 觸控友好 */
+
+  /* 視覺樣式 */
+  @apply rounded-xl font-semibold border-0;
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.2;
+  /* 緊湊行高 */
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+
+  /* 交互 */
+  @apply cursor-pointer;
+  user-select: none;
+  outline: 0;
+
+  /* Material Design 過渡曲線 */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 桌面端按鈕優化 */
+@media (min-width: 640px) {
+  .btn {
+    padding: 1rem 2rem;
+    /* 16px 32px */
+    min-height: 52px;
+    gap: 0.75rem;
+    /* 12px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    padding: 1.125rem 2.25rem;
+    /* 18px 36px */
+    min-height: 56px;
+  }
+}
+
+/* === 主要按鈕 (Primary) === */
+.btn-primary {
+  @apply bg-gradient-to-r from-accent-400 to-accent-600 text-business-900;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover - 提升感 */
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(251, 191, 36, 0.4),
+    0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Active - 按下感 */
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+}
+
+/* Focus - 鍵盤導航 (無障礙) */
+.btn-primary:focus-visible {
+  outline: 3px solid rgba(251, 191, 36, 0.5);
+  outline-offset: 2px;
+}
+
+/* Disabled - 禁用狀態 */
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* === 次要按鈕 (Secondary) === */
+.btn-secondary {
+  @apply bg-white/10 text-white;
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  @apply bg-white/20;
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-secondary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-secondary:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* === 大按鈕 (Large) === */
+.btn-lg {
+  @apply rounded-2xl;
+  padding: 1.25rem 2.5rem;
+  /* 20px 40px */
+  min-height: 56px;
+  font-size: 1.125rem;
+  /* 18px */
+  gap: 0.875rem;
+  /* 14px */
+}
+
+@media (min-width: 640px) {
+  .btn-lg {
+    padding: 1.5rem 3rem;
+    /* 24px 48px */
+    min-height: 64px;
+    font-size: 1.25rem;
+    /* 20px */
+  }
+}
+
+/* === 小按鈕 (Small) === */
+.btn-sm {
+  @apply rounded-lg;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+  min-height: 40px;
+  font-size: 0.875rem;
+  /* 14px */
+  gap: 0.5rem;
+  /* 8px */
+}
+
+/* === 發光動畫按鈕 === */
+.btn-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 全寬按鈕 (手機端常用) */
+.btn-full {
+  @apply w-full;
+}
+
+/* === 卡片系統（大幅增加內距） === */
+.card-glass {
+  @apply bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 transition-all duration-300;
+  padding: 2rem;
+}
+
+@media (min-width: 640px) {
+  .card-glass {
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .card-glass {
+    padding: 1.5rem;
+  }
+}
+
+.card-glass:hover {
+  @apply bg-white/10 border-white/20;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 卡片內元素間距 - 增加呼吸感 */
+.card-glass>*+* {
+  margin-top: 1.5rem;
+}
+
+.card-glass>*:first-child {
+  margin-top: 0;
+}
+
+.card-option {
+  @apply bg-white/5 backdrop-blur-xl rounded-2xl border-2 border-white/10 cursor-pointer transition-all duration-300;
+  padding: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .card-option {
+    padding: 1.75rem;
+  }
+}
+
+.card-option:hover {
+  @apply bg-white/10 border-accent-400/50;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.2);
+}
+
+.card-option.selected {
+  @apply bg-accent-500/10 border-accent-400;
+  box-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+}
+
+/* === 輸入框系統（像素完美） === */
+.input-field {
+  /* 布局 */
+  @apply w-full;
+  display: block;
+
+  /* 觸控區域 - 與按鈕統一 */
+  padding: 0.875rem 1rem;
+  /* 14px 16px */
+  min-height: 48px;
+
+  /* 視覺樣式 */
+  @apply rounded-xl text-white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+
+  /* 字體 - 16px防止iOS縮放 */
+  font-size: 1rem;
+  line-height: 1.5;
+
+  /* 其他 */
+  outline: 0;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 桌面端輸入框 */
+@media (min-width: 640px) {
+  .input-field {
+    padding: 1rem 1.25rem;
+    /* 16px 20px */
+    min-height: 52px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .input-field {
+    padding: 1.125rem 1.5rem;
+    /* 18px 24px */
+    min-height: 56px;
+  }
+}
+
+/* Focus - 明確的視覺反饋 */
+.input-field:focus {
+  border-color: rgba(251, 191, 36, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.1),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover - 細微提示 */
+.input-field:hover:not(:focus):not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Error - 錯誤狀態 */
+.input-field.error {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.input-field.error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Disabled - 禁用 */
+.input-field:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Placeholder */
+.input-field::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+}
+
+/* Textarea */
+textarea.input-field {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* === 徽章樣式 === */
+.badge {
+  @apply inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-semibold;
+  letter-spacing: 0.02em;
+}
+
+.badge-primary {
+  @apply bg-primary-500/20 text-primary-300 border border-primary-500/30;
+}
+
+.badge-accent {
+  @apply bg-accent-500/20 text-accent-300 border border-accent-500/30;
+}
+
+.badge-success {
+  @apply bg-success-500/20 text-success-500 border border-success-500/30;
+}
+
+/* === 進度指示器 === */
+.progress-step {
+  @apply w-3.5 h-3.5 rounded-full bg-white/20 transition-all duration-300;
+}
+
+.progress-step.active {
+  @apply bg-accent-400 w-12;
+}
+
+.progress-step.completed {
+  @apply bg-accent-500;
+}
+
+/* === 背景效果 === */
+.bg-gradient-radial {
+  background: radial-gradient(ellipse at top, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+}
+
+.bg-mesh {
+  background-image:
+    radial-gradient(at 40% 20%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(251, 191, 36, 0.15) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(251, 191, 36, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+}
+
+/* === 文字漸層 === */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-300 via-accent-400 to-accent-500;
+}
+
+.text-gradient-primary {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-300 via-primary-400 to-primary-500;
+}
+
+/* === 分隔線 === */
+.divider {
+  @apply h-px bg-gradient-to-r from-transparent via-white/20 to-transparent my-12;
+}
+
+/* === 響應式容器（統一大方邊距） === */
+.container-narrow {
+  @apply max-w-2xl mx-auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container-wide {
+  @apply max-w-7xl mx-auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-narrow {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .container-wide {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-narrow {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .container-wide {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-narrow {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+
+  .container-wide {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+/* === 價格顯示（優化排版） === */
+.price-strike {
+  @apply text-white/40 line-through text-base;
+  letter-spacing: 0.01em;
+}
+
+.price-main {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-accent-400;
+  letter-spacing: -0.02em;
+}
+
+.price-suffix {
+  @apply text-white/60 text-base font-normal ml-1.5;
+}
+
+/* === 區塊間距優化 === */
+.section-spacing {
+  @apply py-20 md:py-28 lg:py-32;
+}
+
+.section-title {
+  @apply text-2xl md:text-3xl lg:text-4xl font-bold leading-tight;
+  margin-bottom: 1.5rem;
+}
+
+.section-subtitle {
+  @apply text-base md:text-lg text-white/60;
+  line-height: 1.8;
+  max-width: 36rem;
+}
+
+/* === 滾動容器 === */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* === 過場動畫類 === */
+.animate-in {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-in-delay-1 {
+  animation: slide-up 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-2 {
+  animation: slide-up 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-in-delay-3 {
+  animation: slide-up 0.6s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+/* === 間距工具類（增強版） === */
+.space-section {
+  @apply py-20 md:py-28 lg:py-32;
+}
+
+.space-content {
+  @apply mb-8 md:mb-10;
+}
+
+.space-title {
+  @apply mb-6 md:mb-8;
+}
+
+.space-items {
+  @apply space-y-4 md:space-y-6;
+}
+
+/* === 網格間距優化 === */
+.grid-comfortable {
+  @apply gap-6 md:gap-8 lg:gap-10;
+}
+
+/* === 列表項目間距 === */
+.list-spaced>*+* {
+  margin-top: 1rem;
+}
+
+.list-spaced-lg>*+* {
+  margin-top: 1.25rem;
+}
+
+/* === 按鈕內容不換行 === */
+.btn span,
+.btn svg {
+  flex-shrink: 0;
+}
+
+/* === 標籤間距優化 === */
+.tag-list {
+  @apply flex flex-wrap gap-2.5;
+}
+
+.tag-item {
+  @apply px-3.5 py-1.5 rounded-full bg-white/5 text-white/60 text-sm;
+  letter-spacing: 0.01em;
+}
+
+/* === 圖標容器優化 === */
+.icon-container {
+  @apply flex-shrink-0 flex items-center justify-center rounded-xl;
+}
+
+.icon-container-sm {
+  @apply w-10 h-10 rounded-lg;
+}
+
+.icon-container-md {
+  @apply w-14 h-14 rounded-xl;
+}
+
+.icon-container-lg {
+  @apply w-18 h-18 rounded-2xl;
+}
+
+/* === 文字描述優化 === */
+.description-text {
+  @apply text-white/70 leading-relaxed;
+  line-height: 1.85;
+}
+
+.description-text-sm {
+  @apply text-sm text-white/60;
+  line-height: 1.8;
+}
+
+/* === 區塊標題組合 === */
+.section-header {
+  @apply text-center mb-14 md:mb-18;
+}
+
+.section-header h2 {
+  @apply text-2xl sm:text-3xl md:text-4xl font-bold mb-6;
+  line-height: 1.35;
+}
+
+.section-header p {
+  @apply text-white/60 text-base sm:text-lg max-w-2xl mx-auto;
+  line-height: 1.85;
+}
+
+/* === 功能列表優化 === */
+.feature-list {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+}
+
+.feature-item {
+  @apply flex items-center gap-4 p-4 rounded-xl bg-white/5;
+}
+
+.feature-item-icon {
+  @apply w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center;
+}
+
+.feature-item-text {
+  @apply text-white/80 text-sm sm:text-base;
+  line-height: 1.6;
+}
+
+/* === 內容區塊間距 === */
+.content-block {
+  @apply space-y-6;
+}
+
+.content-block-lg {
+  @apply space-y-8;
+}
+
+/* === 響應式文字大小 === */
+.text-responsive-sm {
+  @apply text-sm sm:text-base;
+}
+
+.text-responsive-base {
+  @apply text-base sm:text-lg;
+}
+
+.text-responsive-lg {
+  @apply text-lg sm:text-xl md:text-2xl;
+}
+
+/* === 清晰度優化 === */
+.text-clear {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+/* ============================================
+   Mobile UX 優化 - 拇指熱區與觸控回饋
+   ============================================ */
+
+/* 1. 手機端按鈕觸控回饋 */
+@media (max-width: 640px) {
+  .btn:active {
+    transform: scale(0.97);
+    opacity: 0.9;
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+  }
+
+  .card-option:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.12);
+    transition: transform 0.1s ease-out, background 0.1s ease-out;
+  }
+
+  /* 2. 增加手機端卡片內距 */
+  .card-glass {
+    padding: 1.75rem;
+  }
+
+  /* 3. 選項卡片間距優化 */
+  .mobile-option-spacing {
+    gap: 1rem;
+  }
+}
+
+/* 4. Sticky Bottom CTA Bar */
+.sticky-bottom-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1.25rem;
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.95));
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 50;
+  transform: translateY(0);
+  transition: transform 0.3s ease-out;
+}
+
+.sticky-bottom-cta.hidden {
+  transform: translateY(100%);
+}
+
+/* 5. 選項卡片最小高度確保觸控區 */
+.card-option {
+  min-height: 64px;
+}
+
+/* 6. 底部內容留白 (配合 Sticky Bottom CTA) */
+.pb-sticky-cta {
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 641px) {
+  .pb-sticky-cta {
+    padding-bottom: 0;
+  }
+}
+
+/* 7. 手機端功能格子單欄 */
+@media (max-width: 480px) {
+  .mobile-single-col {
+    grid-template-columns: 1fr !important;
+  }
+}

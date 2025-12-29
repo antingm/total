@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* 草本綠色調 - 營造「天然且專業」的氛圍 */
+  --color-primary: #2F855A;
+  --color-primary-dark: #276749;
+  --color-primary-light: #48BB78;
+  
+  /* 金色強調 - 用於專利/冠軍獎項 */
+  --color-accent: #D69E2E;
+  --color-accent-light: #ECC94B;
+  
+  /* 背景與表面 */
+  --color-surface: #F7FAF8;
+  --color-surface-dark: #EDF2F0;
+  
+  /* 文字顏色 */
+  --color-text-main: #2D3748;
+  --color-text-muted: #718096;
+  --color-text-light: #A0AEC0;
+  
+  /* 其他 */
+  --color-danger: #E53E3E;
+  --color-success: #38A169;
+  --color-warning: #DD6B20;
+  
+  /* 字體 */
+  --font-sans: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+}
+
+/* 全域樣式 */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-text-main);
+  line-height: 1.6;
+}
+
+/* 自訂動畫 */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(47, 133, 90, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(47, 133, 90, 0.5); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

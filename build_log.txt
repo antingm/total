@@ -1,0 +1,109 @@
+﻿[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+node.exe : Found 1 wa
+rning while optimizin
+g generated CSS:
+位於 線路:1 字元:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Program Files\nodejs
+/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Found 1   
+  warning... gene    
+rated CSS::Strin    g
+) [], RemoteExc    ep
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+
+[2m??  }[22m
+[2m??}[22m
+[2m??[22m @import ur
+l('https://fonts.goog
+leapis.com/css2?famil
+y=Inter:wght@300;400;
+500;600;700;800&famil
+y=Noto+Sans+TC:wght@3
+00;400;500;600;700&di
+splay=swap');
+[2m??[22m        [3
+3m[2m^--[22m @impor
+t rules must precede 
+all rules aside from 
+@charset and @layer s
+tatements[39m
+[2m??[22m
+[2m??@layer base {[
+22m
+[2m??  * {[22m
+
+Found 1 warning while
+ optimizing generated
+ CSS:
+
+[2m??  }[22m
+[2m??}[22m
+[2m??[22m @import ur
+l('https://fonts.goog
+leapis.com/css2?famil
+y=Inter:wght@300;400;
+500;600;700;800&famil
+y=Noto+Sans+TC:wght@3
+00;400;500;600;700&di
+splay=swap');
+[2m??[22m        [3
+3m[2m^--[22m @impor
+t rules must precede 
+all rules aside from 
+@charset and @layer s
+tatements[39m
+[2m??[22m
+[2m??@keyframes fade
+-in {[22m
+[2m??  from {[22m
+
+[32m??[39m 1105 modules transformed.
+[31m??[39m Build fai
+led in 3.35s
+[31merror during bui
+ld:
+[31mCould not resolv
+e "../constants" from
+ "src/demos/demo-1/co
+mponents/Hero.jsx"[3
+1m
+file: [36mC:/code/we
+b-work/total/src/demo
+s/demo-1/components/H
+ero.jsx[31m
+    at getRollupError
+ (file:///C:/code/web
+-work/total/node_modu
+les/rollup/dist/es/sh
+ared/parseAst.js:401:
+41)
+    at error (file://
+/C:/code/web-work/tot
+al/node_modules/rollu
+p/dist/es/shared/pars
+eAst.js:397:42)
+    at ModuleLoader.h
+andleInvalidResolvedI
+d (file:///C:/code/we
+b-work/total/node_mod
+ules/rollup/dist/es/s
+hared/node-entry.js:2
+1661:24)
+    at file:///C:/cod
+e/web-work/total/node
+_modules/rollup/dist/
+es/shared/node-entry.
+js:21621:26[39m

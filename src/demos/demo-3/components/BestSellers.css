@@ -1,0 +1,45 @@
+/* 熱銷排行區塊 */
+.bestsellers-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #FFF8F0 0%, #FFF5EB 100%);
+}
+
+.bestsellers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .bestsellers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.bestseller-item {
+    position: relative;
+}
+
+.bestseller-rank {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    color: #1A1A2E;
+    font-weight: 900;
+    font-size: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+}

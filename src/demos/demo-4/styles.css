@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+/* Custom Theme */
+@theme {
+  /* Colors - Professional Trust */
+  --color-primary: #1565C0;
+  --color-primary-dark: #0D47A1;
+  --color-primary-light: #E3F2FD;
+  --color-accent: #2E7D32;
+  --color-accent-dark: #1B5E20;
+  --color-accent-light: #E8F5E9;
+  --color-gold: #F9A825;
+  --color-gold-dark: #F57F17;
+
+  /* Font */
+  --font-family-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  @apply bg-white text-gray-900;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}

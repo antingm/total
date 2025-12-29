@@ -1,0 +1,145 @@
+﻿[36mvite v7.3.0 [32mbuilding client environment for production...[36m[39m
+transforming...
+node.exe : Found 1 wa
+rning while optimizin
+g generated CSS:
+位於 線路:1 字元:1
++ & "C:\Program Files
+\nodejs/node.exe" "C:
+\Program Files\nodejs
+/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~
+    + CategoryInfo   
+           : NotSpe  
+  cified: (Found 1   
+  warning... gene    
+rated CSS::Strin    g
+) [], RemoteExc    ep
+tion
+    + FullyQualified 
+   ErrorId : Native  
+  CommandError
+ 
+
+[2m??  }[22m
+[2m??}[22m
+[2m??[22m @import ur
+l('https://fonts.goog
+leapis.com/css2?famil
+y=Inter:wght@300;400;
+500;600;700;800&famil
+y=Noto+Sans+TC:wght@3
+00;400;500;600;700&di
+splay=swap');
+[2m??[22m        [3
+3m[2m^--[22m @impor
+t rules must precede 
+all rules aside from 
+@charset and @layer s
+tatements[39m
+[2m??[22m
+[2m??@layer base {[
+22m
+[2m??  * {[22m
+
+Found 1 warning while
+ optimizing generated
+ CSS:
+
+[2m??  }[22m
+[2m??}[22m
+[2m??[22m @import ur
+l('https://fonts.goog
+leapis.com/css2?famil
+y=Inter:wght@300;400;
+500;600;700;800&famil
+y=Noto+Sans+TC:wght@3
+00;400;500;600;700&di
+splay=swap');
+[2m??[22m        [3
+3m[2m^--[22m @impor
+t rules must precede 
+all rules aside from 
+@charset and @layer s
+tatements[39m
+[2m??[22m
+[2m??@keyframes fade
+-in {[22m
+[2m??  from {[22m
+
+[32m??[39m 1121 modules transformed.
+[31m??[39m Build fai
+led in 4.42s
+[31merror during bui
+ld:
+[31m[vite]: Rollup f
+ailed to resolve impo
+rt "date-fns" from "C
+:/code/web-work/total
+/src/demos/demo-5/pag
+es/Member.jsx".
+This is most likely u
+nintended because it 
+can break your applic
+ation at runtime.
+If you do want to ext
+ernalize this module 
+explicitly add it to
+`build.rollupOptions.
+external`[31m
+    at viteLog (file:
+///C:/code/web-work/t
+otal/node_modules/vit
+e/dist/node/chunks/co
+nfig.js:33634:57)
+    at file:///C:/cod
+e/web-work/total/node
+_modules/vite/dist/no
+de/chunks/config.js:3
+3668:73
+    at onwarn (file:/
+//C:/code/web-work/to
+tal/node_modules/@vit
+ejs/plugin-react/dist
+/index.js:76:7)
+    at file:///C:/cod
+e/web-work/total/node
+_modules/vite/dist/no
+de/chunks/config.js:3
+3668:28
+    at onRollupLog (f
+ile:///C:/code/web-wo
+rk/total/node_modules
+/vite/dist/node/chunk
+s/config.js:33663:63)
+    at onLog (file://
+/C:/code/web-work/tot
+al/node_modules/vite/
+dist/node/chunks/conf
+ig.js:33466:4)
+    at file:///C:/cod
+e/web-work/total/node
+_modules/rollup/dist/
+es/shared/node-entry.
+js:21032:32
+    at Object.logger 
+[as onLog] (file:///C
+:/code/web-work/total
+/node_modules/rollup/
+dist/es/shared/node-e
+ntry.js:22919:9)
+    at ModuleLoader.h
+andleInvalidResolvedI
+d (file:///C:/code/we
+b-work/total/node_mod
+ules/rollup/dist/es/s
+hared/node-entry.js:2
+1663:26)
+    at file:///C:/cod
+e/web-work/total/node
+_modules/rollup/dist/
+es/shared/node-entry.
+js:21621:26[39m

@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* 自訂主題變數 - 科技感深色主題 */
+@theme {
+  /* 主要強調色 - 科技藍 */
+  --color-primary: #22d3ee;
+  --color-primary-light: #67e8f9;
+  --color-primary-dark: #06b6d4;
+
+  /* 次要強調色 - 質感金 */
+  --color-accent: #D4AF37;
+  --color-accent-light: #E5C158;
+  --color-accent-dark: #B8962F;
+
+  /* 背景色 - 深藍/深灰 */
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+
+  /* 字體 */
+  --font-family-display: 'Noto Sans TC', 'Inter', system-ui, sans-serif;
+}
+
+/* 全域樣式 */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 18px;
+  /* 強制全站最小字體基礎為 18px (1rem = 18px) */
+}
+
+body {
+  @apply bg-bg-primary text-white antialiased;
+  font-family: var(--font-family-display);
+  line-height: 1.8;
+  /* 提升行高，營造呼吸感 */
+  letter-spacing: 0.02em;
+  /* 微調字距提升質感 */
+}
+
+/* 選取文字樣式 */
+::selection {
+  @apply bg-primary/30 text-white;
+}
+
+/* 自訂元件樣式 */
+@layer components {
+
+  /* 主要按鈕 - 手機版友善尺寸 */
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-primary-dark text-slate-900 font-bold px-8 py-4 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-primary/25 text-base tracking-wide;
+  }
+
+  /* 次要按鈕 */
+  .btn-secondary {
+    @apply border-2 border-primary/50 text-primary hover:bg-primary/10 font-bold px-8 py-4 rounded-xl transition-all duration-300 text-base tracking-wide;
+  }
+
+  /* Section 間距 - 手機版適度留白，桌機版更寬敞 */
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32 px-8 sm:px-12 md:px-16 lg:px-24;
+  }
+
+  /* 標題樣式 - 手機版舒適閱讀，桌機版氣勢磅礴 */
+  .heading-xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.25] tracking-tight mb-6;
+    text-wrap: balance;
+  }
+
+  .heading-lg {
+    @apply text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5;
+    text-wrap: balance;
+  }
+
+  .heading-md {
+    @apply text-xl sm:text-2xl md:text-3xl font-bold leading-snug mb-4;
+    text-wrap: balance;
+  }
+
+  /* 針對手機版的字體適應性優化 */
+  @media (max-width: 640px) {
+
+    .heading-xl,
+    .heading-lg,
+    .heading-md {
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    /* 手機版按鈕與文字間距優化 */
+    .btn-primary,
+    .btn-secondary {
+      @apply px-6 py-3 text-lg;
+    }
+
+    p {
+      @apply leading-relaxed;
+      font-size: 1.05rem;
+    }
+  }
+
+  /* 漸變文字 */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    display: inline-block;
+  }
+
+  /* 卡片樣式 - 增加內邊距 */
+  .card {
+    @apply bg-bg-secondary/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5;
+  }
+
+  .card-hover {
+    @apply hover:transform hover:-translate-y-2;
+  }
+}
+
+/* 捲動條樣式 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-bg-secondary;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary;
+}
+
+/* 動畫關鍵影格 */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.4);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 網格背景效果 */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* 光暈效果 - RWD 優化 */
+.hero-glow {
+  position: absolute;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ============================================ */
+/* 全域 RWD 防護規則                              */
+/* ============================================ */
+
+/* 圖片響應式 - 確保圖片不會溢出容器 */
+img,
+video,
+picture,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 僅針對文章、區塊內容中的圖片使用 block 顯示 */
+article img,
+.markdown-content img,
+.section-body img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* SVG 保持原有顯示屬性，僅限制最大寬度以防溢出 */
+svg {
+  max-width: 100%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* 容器溢出防護 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+main,
+section,
+article,
+aside,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* 表格響應式 */
+table {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+/* 預格式文字響應式 */
+pre,
+code {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
